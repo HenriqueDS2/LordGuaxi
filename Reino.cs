@@ -6,16 +6,18 @@ namespace ProjetoGuaxi
 {
     public class Reino
     {
-        public int dia = 1;
+        public int Dia = 1;
 
-        public int madeira = 0;
+        public int Madeira = 0;
 
-        public int ouro = 500;
+        public int Ouro = 500;
 
-        public int comida = 300;
+        public int Comida = 300;
 
-        public int populacao = 40;
+        public int Populacao = 40;
 
-        public int soldados = 8;
+        public int Soldados = 8;
+
+        public int NivelCentroVila = 1;
     }
 }

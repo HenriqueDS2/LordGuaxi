@@ -1,32 +1,32 @@
 ﻿using System;
 using ProjetoGuaxi;
 
-Reino meureino = new Reino();
-bool jogando = true;
+Reino MeuReino = new Reino();
+bool Jogando = true;
 
-prodgenerica prodmadeira = new prodgenerica("Extração de Madeira", "Madeira");
-prodgenerica prodmineracao = new prodgenerica("Mineração", "Ouro");
-prodgenerica prodplantacao = new prodgenerica("Plantação", "Comida");
-prodgenerica prodpomar = new prodgenerica("Pomar", "Comida");
+ProdGenerica ProdMadeira = new ProdGenerica("Extração de Madeira", "Madeira");
+ProdGenerica ProdMineracao = new ProdGenerica("Mineração", "Ouro");
+ProdGenerica ProdPlantacao = new ProdGenerica("Plantação", "Comida");
+ProdGenerica ProdPomar = new ProdGenerica("Pomar", "Comida");
 
-bool lenhadorestrabalharamhoje = false;
-bool mineradorestrabalharamhoje = false;
-bool agricultorestrabalharamhoje = false;
-bool colhedorestrabalharamhoje = false;
+bool LenhadoresTrabalharamHoje = false;
+bool MineradoresTrabalharamHoje = false;
+bool AgricultoresTrabalharamHoje = false;
+bool ColhedoresTrabalharamHoje = false;
 
-while (jogando)
+while (Jogando)
 {
     Console.Clear();
     Console.WriteLine("====================");
     Console.WriteLine("     LORD GUAXI     ");
     Console.WriteLine("====================");
 
-    Console.WriteLine($"Dia: {meureino.dia}");
-    Console.WriteLine($"Madeira: {meureino.madeira}");
-    Console.WriteLine($"Ouro: {meureino.ouro}");
-    Console.WriteLine($"Comida: {meureino.comida}");
-    Console.WriteLine($"População: {meureino.populacao}"); 
-    Console.WriteLine($"Soldados: {meureino.soldados}");
+    Console.WriteLine($"Dia: {MeuReino.Dia}");
+    Console.WriteLine($"Madeira: {MeuReino.Madeira}");
+    Console.WriteLine($"Ouro: {MeuReino.Ouro}");
+    Console.WriteLine($"Comida: {MeuReino.Comida}");
+    Console.WriteLine($"População: {MeuReino.Populacao}"); 
+    Console.WriteLine($"Soldados: {MeuReino.Soldados}");
 
     Console.WriteLine();
     Console.WriteLine("1 = Cortar madeira");
@@ -44,84 +44,84 @@ while (jogando)
     }
     if (escolha == 1)
     {
-        if (lenhadorestrabalharamhoje)
+        if (LenhadoresTrabalharamHoje)
         {
             Console.WriteLine("\nVocê já cortou madeira hoje, os lenhadores estão cansados");
         }
         else
         {
-            var resultado = prodmadeira.Calcularproducao();
-            Console.WriteLine($"\n{resultado.mensagem}");
-            meureino.madeira += resultado.quantidade;
-            lenhadorestrabalharamhoje = true;
+            var Resultado = ProdMadeira.CalcularProducao();
+            Console.WriteLine($"\n{Resultado.Mensagem}");
+            MeuReino.Madeira += Resultado.Quantidade;
+            LenhadoresTrabalharamHoje = true;
         }
     }
     else if (escolha == 2)
     {
-        if (mineradorestrabalharamhoje)
+        if (MineradoresTrabalharamHoje)
         {
             Console.WriteLine("\nOs mineradores já trabalharam duro nos túneis hoje!");
         }
         else
         {
-            var resultado = prodmineracao.Calcularproducao();
-            Console.WriteLine($"\n{resultado.mensagem}");
-            meureino.ouro += resultado.quantidade;
-            mineradorestrabalharamhoje = true;
+            var resultado = ProdMineracao.CalcularProducao();
+            Console.WriteLine($"\n{resultado.Mensagem}");
+            MeuReino.Ouro += resultado.Quantidade;
+            MineradoresTrabalharamHoje = true;
         }
     }
     else if (escolha == 3)
     {
-        if (agricultorestrabalharamhoje)
+        if (AgricultoresTrabalharamHoje)
         {
             Console.WriteLine("\nOs agricultores já cuidaram da plantação hoje!");
         }
         else
         {
-            var resultado = prodplantacao.Calcularproducao();
-            Console.WriteLine($"\n{resultado.mensagem}");
-            meureino.comida += resultado.quantidade;
-            agricultorestrabalharamhoje = true;
+            var resultado = ProdPlantacao.CalcularProducao();
+            Console.WriteLine($"\n{resultado.Mensagem}");
+            MeuReino.Comida += resultado.Quantidade;
+            AgricultoresTrabalharamHoje = true;
         }
     }
     else if (escolha == 4)
     {
-        if (colhedorestrabalharamhoje)
+        if (ColhedoresTrabalharamHoje)
         {
             Console.WriteLine("\nAs frutas do pomar já foram colhidas hoje!");
         }
         else
         {
-            var resultado = prodpomar.Calcularproducao();
-            Console.WriteLine($"\n{resultado.mensagem}");
-            meureino.comida += resultado.quantidade;
-            colhedorestrabalharamhoje = true;
+            var resultado = ProdPomar.CalcularProducao();
+            Console.WriteLine($"\n{resultado.Mensagem}");
+            MeuReino.Comida += resultado.Quantidade;
+            ColhedoresTrabalharamHoje = true;
         }
     }
     else if (escolha == 5)
     {
-        meureino.dia++;
+        MeuReino.Dia++;
 
-        lenhadorestrabalharamhoje = false;
-        mineradorestrabalharamhoje = false;
-        agricultorestrabalharamhoje = false;
-        colhedorestrabalharamhoje = false;
+        LenhadoresTrabalharamHoje = false;
+        MineradoresTrabalharamHoje = false;
+        AgricultoresTrabalharamHoje = false;
+        ColhedoresTrabalharamHoje = false;
 
         Console.WriteLine($"\nAs sombras crescem longas e escuras conforme o sol se esconde no horizonte...");
     }
     else if (escolha == 6)
     {
-        Console.WriteLine($"Dia: {meureino.dia}");
-        Console.WriteLine($"Madeira: {meureino.madeira}");
-        Console.WriteLine($"Ouro: {meureino.ouro}");
-        Console.WriteLine($"Comida: {meureino.comida}");
-        Console.WriteLine($"População: {meureino.populacao}");
-        Console.WriteLine($"Soldados: {meureino.soldados}");
+        Console.WriteLine($"Dia: {MeuReino.Dia}");
+        Console.WriteLine($"Madeira: {MeuReino.Madeira}");
+        Console.WriteLine($"Ouro: {MeuReino.Ouro}");
+        Console.WriteLine($"Comida: {MeuReino.Comida}");
+        Console.WriteLine($"População: {MeuReino.Populacao}");
+        Console.WriteLine($"Soldados: {MeuReino.Soldados}");
     }
     else if (escolha == 7)
     {
         Console.WriteLine("\nObrigado por jogar Lord Guaxi!");
-        jogando = false;
+        Jogando = false;
     }
     else
     {
